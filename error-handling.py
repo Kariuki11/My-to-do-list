@@ -27,8 +27,9 @@ class ToDoList: #Defines a To-Do-List class representing the entire to-do list.
         task = Task(name, due_date)
         self.tasks.append(task)
         self.save_tasks()
+#The add_task method adds a new task to the list hence validating that the task name is a non-empty string before adding it.
 
-    def mark_completed(self, task_index):
+    def mark_completed(self, task_index): #mark_completed method marks a task at a given index as completed and removes it from the list.
         if 0 <= task_index < len(self.tasks):
             self.tasks[task_index].completed = True
             self.tasks.pop(task_index)
@@ -36,14 +37,14 @@ class ToDoList: #Defines a To-Do-List class representing the entire to-do list.
         else:
             raise IndexError("Task index is out of range")
 #An indexError is raised if the provided task_index is out of range (i.e., less than 0 or greater than or equal to the length of the tasks list). #Error handling function.
-#This mechanism ensures that users cannot attempt to mark a task as completed with an invalid index, preventing potential crashes or unexpected behavior.
+#This mechanism ensures that users cannot attempt to mark a task as completed with an invalid index, preventing potential crashes or unexpected behavior. #Error handling function.
 
-    def view_tasks(self):
+    def view_tasks(self): #view_tasks method displays all tasks in the list along with their completion status, name, and due date.
         for i, task in enumerate(self.tasks):
             status = '[x]' if task.completed else '[ ]'
             print(f'{i+1}. {status} {task.name} ({task.due_date})')
 
-    def save_tasks(self):
+    def save_tasks(self): #save_tasks method serializes the list of tasks into JSON format and saves it to a file named tasks.json.
         with open('tasks.json', 'w') as f:
             json.dump(self.tasks, f)
 
