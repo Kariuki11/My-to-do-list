@@ -1,8 +1,8 @@
 import argparse  #Module to parse command-line arguments.
 import json  #Works on Json data.
 
-class Task:
-    def __init__(self, name, due_date=None, completed=False):
+class Task:  #Defines individual task in the to-do list.
+    def __init__(self, name, due_date=None, completed=False): #The __init__ method initializes task attributes when a new task object is created.
         self.name = name
         self.due_date = due_date
         self.completed = completed
@@ -10,11 +10,11 @@ class Task:
 #It initializes three attributes: name, due_date, and completed.
 
     def __repr__(self):
-        return f'Task({self.name}, {self.due_date}, {self.completed})'
+        return f'Task({self.name}, {self.due_date}, {self.completed})' #The __repr__ method provides a string representation of a task object for better.
 
 
-class ToDoList:
-    def __init__(self):
+class ToDoList: #Defines a To-Do-List class representing the entire to-do list.
+    def __init__(self):  #__init__ method initializes an empty list of tasks and loads tasks from a JSON file if available.
         self.tasks = []
         self.load_tasks()
 #Defines a class named ToDoList, representing the entire to-do list.
