@@ -35,6 +35,8 @@ class ToDoList:
             self.save_tasks()
         else:
             raise IndexError("Task index is out of range")
+#An indexError is raised if the provided task_index is out of range (i.e., less than 0 or greater than or equal to the length of the tasks list). #Error handling function.
+#This mechanism ensures that users cannot attempt to mark a task as completed with an invalid index, preventing potential crashes or unexpected behavior.
 
     def view_tasks(self):
         for i, task in enumerate(self.tasks):
@@ -51,6 +53,9 @@ class ToDoList:
                 self.tasks = json.load(f)
         except FileNotFoundError:
             pass
+#An attempt is made to load tasks from a JSON file named tasks.json.
+#If the file is not found (eg, a FileNotFoundError occurs), the exception is caught, and the method gracefully handles the situation by passing silently.
+#This prevents the script from crashing if the tasks file is missing, allowing the application to continue execution without interruption.   #Error handling.
 
 
 def main():
