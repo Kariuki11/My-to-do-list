@@ -48,7 +48,7 @@ class ToDoList: #Defines a To-Do-List class representing the entire to-do list.
         with open('tasks.json', 'w') as f:
             json.dump(self.tasks, f)
 
-    def load_tasks(self):
+    def load_tasks(self): #load_tasks method loads tasks from the tasks.json file and assigns them to the list of tasks, handling the case where the file is not found.
         try:
             with open('tasks.json', 'r') as f:
                 self.tasks = json.load(f)
@@ -59,6 +59,6 @@ class ToDoList: #Defines a To-Do-List class representing the entire to-do list.
 #This prevents the script from crashing if the tasks file is missing, allowing the application to continue execution without interruption.   #Error handling.
 
 
-def main():
+def main(): #Serves as an entry point of the script.
     todo_list = ToDoList()
     parser = argparse.ArgumentParser(description='To-Do List CLI')
