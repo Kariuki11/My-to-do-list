@@ -9,7 +9,7 @@ class Task: #These lines defines a class named `Task`, which represents individu
 
     def __repr__(self): #defines the __repr__ method for the Task class, which returns a string representation of the task object.
         return f'Task({self.name}, {self.due_date}, {self.completed})'
-# The above lines initialize the instance variables `name`, `due_date`, and `completed` with the values provided to the constructor.
+# The above lines initializes the instance variables `name`, `due_date`, and `completed` with the values provided to the constructor.
 
 class ToDoList:
     def __init__(self):
